@@ -7,7 +7,10 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-gray-300: oklch(87.2% 0.01 258.338);
     --color-gray-400: oklch(70.7% 0.022 261.325);
+    --color-gray-500: oklch(55.1% 0.027 264.364);
+    --color-black: #000;
     --color-white: #fff;
     --spacing: 0.25rem;
     --font-weight-bold: 700;
@@ -165,6 +168,30 @@
   }
 }
 @layer utilities {
+  .relative {
+    position: relative;
+  }
+  .z-0 {
+    z-index: 0;
+  }
+  .z-1 {
+    z-index: 1;
+  }
+  .z-4 {
+    z-index: 4;
+  }
+  .z-5 {
+    z-index: 5;
+  }
+  .z-\[-1\] {
+    z-index: -1;
+  }
+  .z-\[4\] {
+    z-index: 4;
+  }
+  .z-\[5\] {
+    z-index: 5;
+  }
   .m-auto {
     margin: auto;
   }
@@ -187,19 +214,29 @@
     width: calc(var(--spacing) * 20);
     height: calc(var(--spacing) * 20);
   }
-  .size-30 {
-    width: calc(var(--spacing) * 30);
-    height: calc(var(--spacing) * 30);
-  }
-  .size-auto {
-    width: auto;
-    height: auto;
-  }
   .h-180 {
     height: calc(var(--spacing) * 180);
   }
-  .w-50 {
-    width: calc(var(--spacing) * 50);
+  .h-200 {
+    height: calc(var(--spacing) * 200);
+  }
+  .h-230 {
+    height: calc(var(--spacing) * 230);
+  }
+  .h-300 {
+    height: calc(var(--spacing) * 300);
+  }
+  .h-320 {
+    height: calc(var(--spacing) * 320);
+  }
+  .h-340 {
+    height: calc(var(--spacing) * 340);
+  }
+  .h-400 {
+    height: calc(var(--spacing) * 400);
+  }
+  .h-430 {
+    height: calc(var(--spacing) * 430);
   }
   .w-80 {
     width: calc(var(--spacing) * 80);
@@ -212,9 +249,6 @@
   }
   .w-\[90\%\] {
     width: 90%;
-  }
-  .w-\[90\] {
-    width: 90;
   }
   .max-w-300 {
     max-width: calc(var(--spacing) * 300);
@@ -230,9 +264,6 @@
   }
   .items-center {
     align-items: center;
-  }
-  .items-end {
-    align-items: flex-end;
   }
   .items-start {
     align-items: flex-start;
@@ -284,20 +315,52 @@
   .bg-\[\#FB8500\] {
     background-color: #FB8500;
   }
-  .bg-\[r\] {
-    background-color: r;
+  .bg-\[gray\] {
+    background-color: gray;
   }
   .bg-\[red\] {
     background-color: red;
   }
+  .bg-\[u\] {
+    background-color: u;
+  }
+  .bg-black {
+    background-color: var(--color-black);
+  }
   .bg-white {
     background-color: var(--color-white);
+  }
+  .bg-linear-210 {
+    --tw-gradient-position: 210deg;
+    @supports (background-image: linear-gradient(in lab, red, red)) {
+      --tw-gradient-position: 210deg in oklab;
+    }
+    background-image: linear-gradient(var(--tw-gradient-stops));
+  }
+  .bg-\[url\(\)\] {
+    background-image: url();
   }
   .bg-\[url\(01\.png\)\] {
     background-image: url(01.png);
   }
   .bg-\[url\(03\.png\)\] {
     background-image: url(03.png);
+  }
+  .bg-\[url\(img\.\)\] {
+    background-image: url(img.);
+  }
+  .bg-\[url\(img\.jpg\)\] {
+    background-image: url(img.jpg);
+  }
+  .bg-\[url\(img\.png\)\] {
+    background-image: url(img.png);
+  }
+  .mask-linear-to-gray-500 {
+    mask-image: var(--tw-mask-linear), var(--tw-mask-radial), var(--tw-mask-conic);
+    mask-composite: intersect;
+    --tw-mask-linear-stops: var(--tw-mask-linear-position), var(--tw-mask-linear-from-color) var(--tw-mask-linear-from-position), var(--tw-mask-linear-to-color) var(--tw-mask-linear-to-position);
+    --tw-mask-linear: linear-gradient(var(--tw-mask-linear-stops));
+    --tw-mask-linear-to-color: var(--color-gray-500);
   }
   .bg-cover {
     background-size: cover;
@@ -322,6 +385,9 @@
   }
   .py-5 {
     padding-block: calc(var(--spacing) * 5);
+  }
+  .py-10 {
+    padding-block: calc(var(--spacing) * 10);
   }
   .py-20 {
     padding-block: calc(var(--spacing) * 20);
@@ -350,9 +416,15 @@
   .text-\[50px\] {
     font-size: 50px;
   }
+  .text-\[60px\] {
+    font-size: 60px;
+  }
   .font-bold {
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
+  }
+  .text-\[\#186c82\] {
+    color: #186c82;
   }
   .text-\[\#219EBC\] {
     color: #219EBC;
@@ -360,8 +432,20 @@
   .text-\[\#FB8500\] {
     color: #FB8500;
   }
-  .text-\[50p\] {
-    color: 50p;
+  .text-\[3\] {
+    color: 3;
+  }
+  .text-black {
+    color: var(--color-black);
+  }
+  .text-gray-300 {
+    color: var(--color-gray-300);
+  }
+  .text-gray-400 {
+    color: var(--color-gray-400);
+  }
+  .text-gray-500 {
+    color: var(--color-gray-500);
   }
   .text-white {
     color: var(--color-white);
@@ -372,21 +456,6 @@
   .outline {
     outline-style: var(--tw-outline-style);
     outline-width: 1px;
-  }
-  .lg\:ml-3 {
-    @media (width >= 64rem) {
-      margin-left: calc(var(--spacing) * 3);
-    }
-  }
-  .lg\:ml-5 {
-    @media (width >= 64rem) {
-      margin-left: calc(var(--spacing) * 5);
-    }
-  }
-  .lg\:ml-8 {
-    @media (width >= 64rem) {
-      margin-left: calc(var(--spacing) * 8);
-    }
   }
   .lg\:ml-10 {
     @media (width >= 64rem) {
@@ -409,14 +478,14 @@
       height: auto;
     }
   }
+  .lg\:h-320 {
+    @media (width >= 64rem) {
+      height: calc(var(--spacing) * 320);
+    }
+  }
   .lg\:w-0 {
     @media (width >= 64rem) {
       width: calc(var(--spacing) * 0);
-    }
-  }
-  .lg\:w-10 {
-    @media (width >= 64rem) {
-      width: calc(var(--spacing) * 10);
     }
   }
   .lg\:w-60 {
@@ -505,6 +574,46 @@
   inherits: false;
   initial-value: solid;
 }
+@property --tw-mask-linear {
+  syntax: "*";
+  inherits: false;
+  initial-value: linear-gradient(#fff, #fff);
+}
+@property --tw-mask-radial {
+  syntax: "*";
+  inherits: false;
+  initial-value: linear-gradient(#fff, #fff);
+}
+@property --tw-mask-conic {
+  syntax: "*";
+  inherits: false;
+  initial-value: linear-gradient(#fff, #fff);
+}
+@property --tw-mask-linear-position {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0deg;
+}
+@property --tw-mask-linear-from-position {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0%;
+}
+@property --tw-mask-linear-to-position {
+  syntax: "*";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-mask-linear-from-color {
+  syntax: "*";
+  inherits: false;
+  initial-value: black;
+}
+@property --tw-mask-linear-to-color {
+  syntax: "*";
+  inherits: false;
+  initial-value: transparent;
+}
 @property --tw-font-weight {
   syntax: "*";
   inherits: false;
@@ -518,6 +627,14 @@
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
       --tw-border-style: solid;
+      --tw-mask-linear: linear-gradient(#fff, #fff);
+      --tw-mask-radial: linear-gradient(#fff, #fff);
+      --tw-mask-conic: linear-gradient(#fff, #fff);
+      --tw-mask-linear-position: 0deg;
+      --tw-mask-linear-from-position: 0%;
+      --tw-mask-linear-to-position: 100%;
+      --tw-mask-linear-from-color: black;
+      --tw-mask-linear-to-color: transparent;
       --tw-font-weight: initial;
       --tw-outline-style: solid;
     }
